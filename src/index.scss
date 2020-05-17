@@ -1,0 +1,17 @@
+.w__list {
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  border: 1px solid grey;
+  padding: 16px;
+  text-align: start;
+  font-size: 20px;
+  list-style: none;
+  &.selected {
+    background: blue;
+    font-weight: bold;
+    color: white;
+  }
+}
