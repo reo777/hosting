@@ -7,12 +7,20 @@ const Item: React.FC<any> = (props) => {
   return (
     <button
       onClick={() => {
-        props.dummies.map((element: any) => {
-          if (element.key === props.i) {
-            console.log(element);
-            element.flag = !element.flag;
-          }
-        });
+        console.log(props.flag);
+
+        props.setItems(
+          props.items.map((target: any) => {
+            if (target.id === props.id) {
+              return {
+                id: target.id,
+                name: target.name,
+                flag: !target.flag,
+              };
+            }
+            return target;
+          })
+        );
       }}
     >
       <li

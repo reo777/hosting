@@ -3,23 +3,24 @@ import React, {memo, useState} from 'react';
 import Item from './Item';
 
 const List: React.FC<any> = (props) => {
-  const [isSelected, setIsSelected] = useState(false);
-
-  const dummies = Array.apply(0, Array(10)).map((x, y) => ({
+  const dummies = Array.apply(0, Array(10000)).map((x, y) => ({
     name: Number(y + 1),
     id: Number(y + 1),
     flag: false,
   }));
 
+  const [items, setItems] = useState(dummies);
+
   return (
     <div className="w__list">
-      {dummies.map((dummy: any, index: number) => {
+      {items.map((item: any, index: number) => {
         return (
           <Item
-            key={dummy.id}
-            name={dummy.name}
-            flag={dummy.flag}
-            dummies={dummies}
+            id={item.id}
+            name={item.name}
+            flag={item.flag}
+            setItems={setItems}
+            items={items}
           />
         );
       })}
