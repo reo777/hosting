@@ -7,8 +7,6 @@ const Item: React.FC<any> = (props) => {
   return (
     <button
       onClick={() => {
-        console.log(props.flag);
-
         props.setItems(
           props.items.map((target: any) => {
             if (target.id === props.id) {
@@ -33,4 +31,4 @@ const Item: React.FC<any> = (props) => {
   );
 };
 
-export default Item;
+export default React.memo(Item);
